@@ -23,8 +23,13 @@ using BusinessUtilsMvc.Models;
 
 #line default
 #line hidden
+#line 3 "C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\Views\_ViewImports.cshtml"
+using BusinessUtilsMvc.Models.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f5989146c20e297d05361cc87bf290b8b98e9284", @"/Views/Home/About.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71a0885f27e58a56596a10066163529fd4f8851a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fd4f277e3751d54ba665a64d8bdfa46c3a7af52a", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_About : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

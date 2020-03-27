@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BusinessUtilsMvc.Models;
+using BusinessUtilsMvc.Models.ViewModels;
 
 namespace BusinessUtilsMvc.Controllers
 {

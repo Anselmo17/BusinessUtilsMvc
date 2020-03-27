@@ -23,8 +23,13 @@ using BusinessUtilsMvc.Models;
 
 #line default
 #line hidden
+#line 3 "C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\Views\_ViewImports.cshtml"
+using BusinessUtilsMvc.Models.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"583387379a597938339285f5a623245873b0a91c", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71a0885f27e58a56596a10066163529fd4f8851a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fd4f277e3751d54ba665a64d8bdfa46c3a7af52a", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998
