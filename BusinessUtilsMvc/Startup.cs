@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,8 +31,10 @@ namespace BusinessUtilsMvc
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            // configuration BD
             services.AddDbContext<BusinessUtilsMvcContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("BusinessUtilsMvcContext")));
+                    options.UseMySql(Configuration.GetConnectionString("BusinessUtilsMvcContext"), builder =>
+                    builder.MigrationsAssembly("BusinessUtilsMvc")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
