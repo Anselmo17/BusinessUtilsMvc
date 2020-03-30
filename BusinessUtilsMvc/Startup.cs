@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using BusinessUtilsMvc.Models;
 using BusinessUtilsMvc.Data;
+using BusinessUtilsMvc.Services;
 
 namespace BusinessUtilsMvc
 {
@@ -37,7 +38,9 @@ namespace BusinessUtilsMvc
                     options.UseMySql(Configuration.GetConnectionString("BusinessUtilsMvcContext"), builder =>
                     builder.MigrationsAssembly("BusinessUtilsMvc")));
 
+            // services 
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
