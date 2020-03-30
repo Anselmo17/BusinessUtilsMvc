@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using BusinessUtilsMvc.Models;
+using BusinessUtilsMvc.Data;
 
 namespace BusinessUtilsMvc
 {
@@ -35,14 +36,17 @@ namespace BusinessUtilsMvc
             services.AddDbContext<BusinessUtilsMvcContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("BusinessUtilsMvcContext"), builder =>
                     builder.MigrationsAssembly("BusinessUtilsMvc")));
+
+            services.AddScoped<SeedingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed();
             }
             else
             {
