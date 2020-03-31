@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessUtilsMvc.Models;
+using BusinessUtilsMvc.Models.ViewModels;
 using BusinessUtilsMvc.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,12 +12,14 @@ namespace BusinessUtilsMvc.Controllers
     public class SellersController : Controller
     {
         private readonly SellersService _sellerService;
+        private readonly DepartmentService _departmentService;
 
 
         // construtor
-        public SellersController(SellersService sellerService)
+        public SellersController(SellersService sellerService, DepartmentService departmentService)
         {
             _sellerService = sellerService;
+            _departmentService = departmentService;
         }
 
 
@@ -31,8 +34,12 @@ namespace BusinessUtilsMvc.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var departments = _departmentService.FindAll();
+            // adiciona os departments a view
+            var viewModel = new SellerFormViewModel { Departments = departments};
+            return View(viewModel);
         }
+
 
         // anotacao para o metodo
         [HttpPost]
