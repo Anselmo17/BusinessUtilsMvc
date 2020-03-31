@@ -32,6 +32,20 @@ namespace BusinessUtilsMvc.Services
             _context.SaveChanges();
         }
 
+        //filtra os dados por id 
+        public Seller FindById(int id)
+        {
+            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+        }
+
+
+        //remove os dados por id 
+        public void Remove(int id)
+        {
+            var obj = _context.Seller.Find(id);
+            _context.Seller.Remove(obj);
+            _context.SaveChanges();
+        }
 
     }
 }
