@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessUtilsMvc.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusinessUtilsMvc.Services
 {
@@ -18,9 +19,10 @@ namespace BusinessUtilsMvc.Services
         }
 
         // metodos
-        public List<Department> FindAll()
+        // nao bloqueia a aplicacao
+        public async Task<List<Department>> FindAllAsync()
         {
-            return _context.Department.OrderBy(x => x.Name).ToList();
+            return await _context.Department.OrderBy(x => x.Name).ToListAsync();
         }
 
 
