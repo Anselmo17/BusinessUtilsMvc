@@ -56,7 +56,7 @@ namespace BusinessUtilsMvc.Controllers
 
                 return View(viewModel);
             }
-            _sellerService.InsertAsync(seller);
+            await _sellerService.InsertAsync(seller);
 
             //redireciona a pagina
             return RedirectToAction(nameof(Index));
@@ -69,7 +69,7 @@ namespace BusinessUtilsMvc.Controllers
             {
                 return RedirectToAction(nameof(Error), new { message = "Id not provided" });
             }
-            var obj = _sellerService.FindByIdAsync(id.Value);
+            var obj = await _sellerService.FindByIdAsync(id.Value);
 
             if(obj == null)
             {
@@ -82,8 +82,16 @@ namespace BusinessUtilsMvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            await _sellerService.RemoveAsync(id);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _sellerService.RemoveAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (IntegrityException e )
+            {
+                return RedirectToAction(nameof(Error), new { message = e.Message });
+            }
+            
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -138,7 +146,7 @@ namespace BusinessUtilsMvc.Controllers
 
             try
             {
-                _sellerService.UpdateAsync(seller);
+                await _sellerService.UpdateAsync(seller);
                 return RedirectToAction(nameof(Index));
 
             }catch(NotFoundException e){
