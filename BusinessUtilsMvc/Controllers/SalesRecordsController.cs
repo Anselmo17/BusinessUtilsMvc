@@ -42,9 +42,29 @@ namespace BusinessUtilsMvc.Controllers
             return View(result);
         }
 
-        public IActionResult GroupingSearch()
+        public async Task<IActionResult> GroupingSearch(DateTime? minDate, DateTime? maxDate)
         {
-            return View();
+            if (!minDate.HasValue)
+            {
+                int month = 1, day = 1;
+                int year = DateTime.Now.Year;
+                minDate = new DateTime(year, month, day);
+            }
+
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+
+            var result = await _salesRecordService.FindByDateGroupingAsync(minDate, maxDate);
+            return View(result);
         }
+
+        //public IActionResult GroupingSearch()
+        //{
+        //    return View();
+        //}
     }
 }
