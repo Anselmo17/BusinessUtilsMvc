@@ -1,5 +1,6 @@
 ﻿using System;
 using BusinessUtilsMvc.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace BusinessUtilsMvc.Models
 {
@@ -8,6 +9,8 @@ namespace BusinessUtilsMvc.Models
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public double Amount { get; set; }
+
+        [Display(Name = "Sale Status")]
         public SaleStatus SaleStatus { get; set; }
         public Seller Seller { get; set; }
 

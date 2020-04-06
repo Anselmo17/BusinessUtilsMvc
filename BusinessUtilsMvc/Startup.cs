@@ -36,15 +36,16 @@ namespace BusinessUtilsMvc
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            // configuration BD
+            // configuration Banco de dados
             services.AddDbContext<BusinessUtilsMvcContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("BusinessUtilsMvcContext"), builder =>
                     builder.MigrationsAssembly("BusinessUtilsMvc")));
 
-            // services 
+            // services Banco de dados
             services.AddScoped<SeedingService>();
             services.AddScoped<SellersService>();
             services.AddScoped<DepartmentService>();
+            services.AddScoped<SalesRecordService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
