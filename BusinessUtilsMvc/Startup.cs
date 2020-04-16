@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using BusinessUtilsMvc.Models;
 using BusinessUtilsMvc.Data;
@@ -11,6 +10,8 @@ using BusinessUtilsMvc.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BusinessUtilsMvc
 {
@@ -49,7 +50,7 @@ namespace BusinessUtilsMvc
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService, ILogger<Startup> logger)
         {
 
             // formatando a linguagem padrao da aplicacao
@@ -81,9 +82,10 @@ namespace BusinessUtilsMvc
 
             app.UseMvc(routes =>
             {
+                
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name:"default",
+                    template: "{controller=Sellers}/{action=Index}/{id?}");
             });
         }
     }

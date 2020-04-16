@@ -20,9 +20,6 @@ C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\Business
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\Departments\Details.cshtml.g.cs
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\Departments\Edit.cshtml.g.cs
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\Departments\Index.cshtml.g.cs
-C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
-C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs
-C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\SalesRecords\GroupingSearch.cshtml.g.cs
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\Razor\Views\SalesRecords\Index.cshtml.g.cs

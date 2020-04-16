@@ -35,3 +35,8 @@ body {
         display: none;
     }
 }
+
+/*Global aplicacao**/
+.navbar-inverse .navbar-brand:hover {
+    color: #ffffff;
+}

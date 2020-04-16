@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BusinessUtilsMvc</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-flatly.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-flatly.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
 </head>
+
+<!--CSS-->
+<style>
+ .navbar-inverse .navbar-brand:hover {
+    color: #ffffff;
+    }
+</style>
+
+
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -26,16 +35,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">BusinessUtilsMvc</a>
+                <ul class="nav navbar-nav" >
+                    <li asp-area="" class="businessUtil navbar-brand">BusinessUtilsMvc</li>
+                </ul>
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Departments" asp-action="Index">Departments</a></li>
                     <li><a asp-area="" asp-controller="Sellers" asp-action="Index">Sellers</a></li>
                     <li><a asp-area="" asp-controller="SalesRecords" asp-action="Index">Sales</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
             </div>
         </div>
