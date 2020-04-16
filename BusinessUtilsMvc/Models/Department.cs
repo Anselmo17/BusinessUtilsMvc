@@ -33,7 +33,7 @@ namespace BusinessUtilsMvc.Models
         public double TotalSellers(DateTime init , DateTime end)
         {
 
-            return Sellers.Sum(sr => sr.totalSales(init, end));
+            return Sellers.Sum(sr => sr.TotalSales(init, end));
         }
     }
 }

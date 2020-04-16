@@ -58,8 +58,8 @@ namespace BusinessUtilsMvc.Services
 
         public async Task UpdateAsync(Seller obj)
         {
-            bool hasAny = !_context.Seller.Any(x => x.Id == obj.Id);
-            if (hasAny)
+            bool hasAny = _context.Seller.Any(x => x.Id == obj.Id);
+            if (!hasAny)
             {
                 throw new NotFoundException("Id not found");
             }

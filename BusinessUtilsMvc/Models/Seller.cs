@@ -52,18 +52,18 @@ namespace BusinessUtilsMvc.Models
         }
 
         // metodos
-        public void addSeller(SalesRecord sr)
+        public void AddSeller(SalesRecord sr)
         {
             Sales.Add(sr);
         }
 
-        public void removeSales(SalesRecord sr)
+        public void RemoveSales(SalesRecord sr)
         {
             Sales.Remove(sr);
         }
 
         // filtra os dados em um determinado periodo e devolve o total
-        public double totalSales(DateTime start , DateTime end)
+        public double TotalSales(DateTime start , DateTime end)
         {
             return Sales.Where(sr => sr.Date >= start && sr.Date <= end).Sum(sr => sr.Amount);
         }
