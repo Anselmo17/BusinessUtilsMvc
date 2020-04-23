@@ -41,3 +41,4 @@ C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\Business
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\BusinessUtilsMvc.dll
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\BusinessUtilsMvc.pdb
 C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\BusinessUtilsMvc.csproj.CopyComplete
+C:\Users\anselmo.dos.santos\source\repos\Curso_c_sharp\BusinessUtilsMvc\BusinessUtilsMvc\obj\Debug\netcoreapp2.1\BusinessUtilsMvc.csprojAssemblyReference.cache
