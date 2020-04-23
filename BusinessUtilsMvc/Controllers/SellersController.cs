@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessUtilsMvc.Models;
+using BusinessUtilsMvc.Models.Enums;
 using BusinessUtilsMvc.Models.ViewModels;
 using BusinessUtilsMvc.Services;
 using BusinessUtilsMvc.Services.Exceptions;
@@ -15,13 +16,15 @@ namespace BusinessUtilsMvc.Controllers
     {
         private readonly SellersService _sellerService;
         private readonly DepartmentService _departmentService;
+        private readonly SalesRecordService _salesRecordService;
 
 
         // construtor
-        public SellersController(SellersService sellerService, DepartmentService departmentService)
+        public SellersController(SellersService sellerService, DepartmentService departmentService, SalesRecordService salesRecordService)
         {
             _sellerService = sellerService;
             _departmentService = departmentService;
+            _salesRecordService = salesRecordService;
         }
 
 
@@ -57,6 +60,10 @@ namespace BusinessUtilsMvc.Controllers
                 return View(viewModel);
             }
             await _sellerService.InsertAsync(seller);
+
+            // adiciona sales records 
+            SalesRecord sr = new SalesRecord(seller.Id, seller.BirthDate, seller.BaseSalary, SaleStatus.Billed, seller);
+            await _salesRecordService.InsertAsync(sr);
 
             //redireciona a pagina
             return RedirectToAction(nameof(Index));

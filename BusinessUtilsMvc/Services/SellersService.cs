@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BusinessUtilsMvc.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BusinessUtilsMvc.Models;
 using BusinessUtilsMvc.Services.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,6 +31,7 @@ namespace BusinessUtilsMvc.Services
         public async Task InsertAsync(Seller obj)
         {
             _context.Add(obj);
+        
            await _context.SaveChangesAsync();
         }
 
