@@ -17,12 +17,14 @@ namespace BusinessUtilsMvc
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
+            Env = env;
         }
 
         public IConfiguration Configuration { get; }
+        public IHostingEnvironment Env { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,9 +40,23 @@ namespace BusinessUtilsMvc
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // configuration Banco de dados
+            string connectionString = "";
+
+
+
+            if (Env.IsProduction())
+            {
+                connectionString = Configuration.GetConnectionString("PRD-BusinessUtilsMvcContext");
+            }
+            else
+            {
+                connectionString = Configuration.GetConnectionString("BusinessUtilsMvcContext");
+            }
+
+
             services.AddDbContext<BusinessUtilsMvcContext>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("BusinessUtilsMvcContext"), builder =>
-                    builder.MigrationsAssembly("BusinessUtilsMvc")));
+                    options.UseMySql(connectionString, builder =>
+                   builder.MigrationsAssembly("BusinessUtilsMvc")));
 
             // services Banco de dados
             services.AddScoped<SeedingService>();
@@ -57,9 +73,9 @@ namespace BusinessUtilsMvc
             var enUS = new CultureInfo("en-US");
             var localzationOptions = new RequestLocalizationOptions
             {
-            DefaultRequestCulture = new RequestCulture(enUS),
+                DefaultRequestCulture = new RequestCulture(enUS),
                 SupportedCultures = new List<CultureInfo> { enUS },
-                 SupportedUICultures = new List<CultureInfo> { enUS }
+                SupportedUICultures = new List<CultureInfo> { enUS }
             };
 
             // adicionando a opcao
@@ -82,9 +98,9 @@ namespace BusinessUtilsMvc
 
             app.UseMvc(routes =>
             {
-                
+
                 routes.MapRoute(
-                    name:"default",
+                    name: "default",
                     template: "{controller=Sellers}/{action=Index}/{id?}");
             });
         }
